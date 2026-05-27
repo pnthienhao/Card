@@ -169,8 +169,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 72px;
-      height: 72px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       background: radial-gradient(circle at 35% 35%, #E8C97A, #8A6A20);
       border: 2px solid rgba(255, 230, 130, .5);
@@ -314,6 +314,7 @@
       opacity: 0;
       max-height: 90vh;
       overflow-y: auto;
+      overflow-x: hidden;
     }
 
     .card-overlay.open .card {
@@ -325,34 +326,38 @@
     /* ── 4 góc trang trí ── */
     .corner {
       position: absolute;
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-color: rgba(201, 168, 76, .5);
       border-style: solid;
       pointer-events: none;
     }
 
+    /* Top Left */
     .corner.tl {
-      top: 14px;
-      left: 14px;
+      top: 8px;
+      left: 8px;
       border-width: 1px 0 0 1px;
     }
 
+    /* Top Right */
     .corner.tr {
-      top: 14px;
-      right: 14px;
+      top: 8px;
+      right: 8px;
       border-width: 1px 1px 0 0;
     }
 
+    /* Bottom Left */
     .corner.bl {
-      bottom: 14px;
-      left: 14px;
+      bottom: 8px;
+      left: 8px;
       border-width: 0 0 1px 1px;
     }
 
+    /* Bottom Right */
     .corner.br {
-      bottom: 14px;
-      right: 14px;
+      bottom: 8px;
+      right: 8px;
       border-width: 0 1px 1px 0;
     }
 
@@ -513,6 +518,11 @@
       color: rgba(245, 230, 184, .9);
     }
 
+    .info-value a {
+      text-decoration: none;
+      color: rgba(220, 172, 28, 0.9);
+    }
+
     .info-value strong {
       color: var(--gold-light);
       font-weight: 500;
@@ -596,24 +606,149 @@
       border-radius: 2px;
     }
 
-    @media (max-width: 480px) {
-      .card {
-        padding: 36px 28px 32px;
+    @media (max-width: 768px) {
+
+      body {
+        padding: 16px;
+        align-items: center;
+      }
+
+      .scene {
+        padding: 1rem .5rem;
+      }
+
+      /* Envelope */
+      .envelope-wrap {
+        max-width: 100%;
+      }
+
+      .envelope {
+        padding-bottom: 68%;
       }
 
       .env-flap {
-        border-left-width: calc(50vw - 1rem);
-        border-right-width: calc(50vw - 1rem);
+        border-left-width: 50vw;
+        border-right-width: 50vw;
         border-top-width: 120px;
       }
 
       .env-flap::after {
-        border-left-width: calc(50vw - 1rem - 2px);
-        border-right-width: calc(50vw - 1rem - 2px);
+        border-left-width: calc(50vw - 2px);
+        border-right-width: calc(50vw - 2px);
         border-top-width: 118px;
         top: -118px;
-        left: calc(-50vw + 1rem + 2px);
-        right: calc(-50vw + 1rem + 2px);
+        left: calc(-50vw + 2px);
+        right: calc(-50vw + 2px);
+      }
+
+      .seal {
+        width: 58px;
+        height: 58px;
+      }
+
+      .seal-text {
+        font-size: 13px;
+      }
+
+      .open-hint {
+        font-size: 18px;
+        letter-spacing: .06em;
+        padding: 0 12px;
+      }
+
+      /* Card */
+      .card-overlay {
+        padding: 12px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 100%;
+        padding: 30px 20px 28px;
+        border-radius: 12px;
+        max-height: 92vh;
+      }
+
+      .corner {
+        width: 24px;
+        height: 24px;
+      }
+
+      .invite-from {
+        font-size: 16px !important;
+        letter-spacing: .14em !important;
+      }
+
+      .card-title-big {
+        font-size: clamp(24px, 7vw, 38px) !important;
+        line-height: 1.4 !important;
+        padding: 0 4px;
+      }
+
+      .theme-tag {
+        font-size: 13px;
+        margin-bottom: 22px;
+      }
+
+      .theme-tag span {
+        font-size: 16px;
+      }
+
+      .body-text {
+        font-size: 15px !important;
+        line-height: 1.8;
+        margin-bottom: 22px;
+        padding: 0 4px;
+      }
+
+      /* Guest Name */
+      #guestName {
+        font-size: clamp(30px, 8vw, 42px) !important;
+        word-break: break-word;
+        line-height: 1.25 !important;
+      }
+
+      /* Info */
+      .info-block {
+        padding: 18px 16px;
+      }
+
+      .info-row {
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+
+      .info-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+      }
+
+      .info-label {
+        font-size: 10px;
+        letter-spacing: .18em;
+      }
+
+      .info-value {
+        font-size: 12.5px;
+        line-height: 1.6;
+      }
+
+      /* Signature */
+      .sig-from {
+        font-size: 16px !important;
+      }
+
+      .sig-name {
+        font-size: clamp(30px, 8vw, 42px) !important;
+      }
+
+      .btn-close {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+        top: 12px;
+        right: 12px;
       }
     }
   </style>
@@ -633,7 +768,10 @@
           <div class="env-lines"></div>
           <div class="env-flap"></div>
           <div class="seal">
-            <div class="seal-text">FPTU</div>
+            <div class="seal-text">FPTU
+              <br>
+              TOP100
+            </div>
           </div>
         </div>
       </div>
@@ -646,10 +784,7 @@
     <div class="card" id="card">
 
       <!-- 4 góc trang trí -->
-      <span class="corner tl"></span>
-      <span class="corner tr"></span>
-      <span class="corner bl"></span>
-      <span class="corner br"></span>
+
 
       <button class="btn-close" onclick="closeCard()" title="Đóng">✕</button>
 
@@ -740,6 +875,8 @@
               <strong>Nhà Văn Hóa Sinh Viên</strong><br>
               01 Lưu Hữu Phước, Khu phố Tân Lập,
               Phường Đông Hòa, TP.HCM
+              <br>
+              <a href="https://maps.app.goo.gl/Z4AuE2Fs1UwLPtgV6" target="_blank">Xem địa chỉ tại đây</a>
             </div>
           </div>
         </div>
