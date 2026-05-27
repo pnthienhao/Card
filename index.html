@@ -955,13 +955,31 @@
       if (e.target === this) closeCard();
     });
 
-    const params = new URLSearchParams(window.location.search);
-    const guestName = params.get('name');
+    const guests = {
+      "001": "Hoàng Văn",
+      "002": "Quốc Huy",
+      "003": "Ngọc Như",
+      "004": "Minh Thư",
+      "005": "Mỹ Loan",
+      "006": "Kiều Diễm",
+      "007": "Tuấn Kiệt",
+      "008": "Lê Minh Khôi",
+      "009": "Duy Phong",
+      "010": "Lan Phương",
+      "011": "Thanh Tùng",
+      "012": "Thầy Hải Văn",
+      "013": "Cô Ngọc Vân"
+    };
 
-    if (guestName && guestName.trim() !== '') {
-      const formattedName = decodeURIComponent(guestName.replace(/\+/g, ' '));
+    const params = new URLSearchParams(window.location.search);
+    const guestId = params.get('id');
+
+    if (guestId && guests[guestId]) {
       const guestEl = document.getElementById('guestName');
-      if (guestEl) guestEl.textContent = formattedName;
+
+      if (guestEl) {
+        guestEl.textContent = guests[guestId];
+      }
     }
 
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCard(); });
